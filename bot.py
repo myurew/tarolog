@@ -10,7 +10,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.enums import ParseMode
 
 # === Настройки ===
-BOT_TOKEN = "8395318503:AAHLrzOmb-J1Jsa1BTM_J__1OGAngM_x6Ek"  # ← Замените на ваш токен от @BotFather
+BOT_TOKEN = "7659032874:AAHWAspgjhWWhHOq9fPfJyOzWCMUWViVWMI"  # ← Замените на ваш токен от @BotFather
 IMAGE_PATH = "cards"
 
 # === Данные: карты и описания ===
@@ -229,11 +229,18 @@ async def main():
     print("⏳ Ожидание подключения к Telegram...")
 
     try:
+        # Удаляем вебхук перед запуском polling
+        print("🔄 Удаление вебхука...")
+        await bot.delete_webhook(drop_pending_updates=True)
+        print("✅ Вебхук удален, запуск polling...")
+        
         await dp.start_polling(bot)
     except KeyboardInterrupt:
         print("\n🛑 Бот остановлен вручную.")
     except Exception as e:
         print(f"❌ Произошла ошибка при запуске бота: {e}")
+    finally:
+        await bot.session.close()
 
 if __name__ == "__main__":
     asyncio.run(main())
