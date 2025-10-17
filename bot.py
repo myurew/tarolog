@@ -10,7 +10,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.enums import ParseMode
 
 # === Настройки ===
-BOT_TOKEN = "7659032874:AAHWAspgjhWWhHOq9fPfJyOzWCMUWViVWMI"  # ← Замените на ваш токен от @BotFather
+BOT_TOKEN = "your_bot_token"  # ← Замените на ваш токен от @BotFather
 IMAGE_PATH = "cards"
 
 # === Данные: карты и описания ===
